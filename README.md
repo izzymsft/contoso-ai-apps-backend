@@ -1,2 +1,2 @@
-# contoso-ai-apps-backend
+# Contoso AI Apps Backend Application
 Contoso AI Apps
