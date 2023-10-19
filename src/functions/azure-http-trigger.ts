@@ -10,6 +10,7 @@ export async function azureHttpTrigger(request: HttpRequest, context: Invocation
 
 app.http('azure-http-trigger', {
   methods: ['GET', 'POST'],
-  authLevel: 'anonymous',
+  authLevel: 'function',
   handler: azureHttpTrigger,
+  route: 'azure-http-trigger/{version}/{action}',
 });
