@@ -1,13 +1,21 @@
-import { app, InvocationContext } from '@azure/functions';
+import { app, CosmosDBFunctionOptions, CosmosDBv4FunctionOptions, InvocationContext } from '@azure/functions';
+import { Yacht } from '../../shared/models/yachts';
 
-export async function azureCosmosDBMonitor(documents: unknown[], context: InvocationContext): Promise<void> {
+export async function azureCosmosDBMonitor(documents: Yacht[], context: InvocationContext): Promise<void> {
   context.log(`Cosmos DB function processed ${documents.length} documents`);
+
+  for await (const currentDoc of documents) {
+    console.log('Current Document is displayed');
+    console.log(currentDoc);
+  }
 }
 
-app.cosmosDB('azure-cosmos-db-monitor', {
-  connectionStringSetting: '',
-  databaseName: '',
-  collectionName: '',
-  createLeaseCollectionIfNotExists: true,
+const options: CosmosDBv4FunctionOptions = {
+  connection: 'COSMOS_DB_CONNECTION',
+  databaseName: 'contosodb',
+  containerName: 'yachts',
+  createLeaseContainerIfNotExists: true,
   handler: azureCosmosDBMonitor,
-});
+};
+
+app.cosmosDB('azure-cosmos-db-monitor', options);
