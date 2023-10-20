@@ -17,7 +17,9 @@ export async function azureBlobStoreMonitor(blob: Buffer, context: InvocationCon
     chunkOverlap: 0,
   });
 
-  const document = new Document({ pageContent: blobAsString });
+  const documentMetadata = { filename: context.triggerMetadata.documentFileName };
+
+  const document = new Document({ pageContent: blobAsString, metadata: documentMetadata });
 
   // Chunks of docs after splitting the blob chunks into reasonable chunks of smaller size
   const docOutput = await splitter.splitDocuments([document]);
@@ -30,6 +32,7 @@ export async function azureBlobStoreMonitor(blob: Buffer, context: InvocationCon
 
     console.log(documentId);
     console.log(currentDoc);
+    console.log(JSON.stringify(currentDoc));
   }
 }
 
