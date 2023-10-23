@@ -14,8 +14,12 @@
     "OPENAI_API_BASE": "https://esteunidos.openai.azure.com/",
     "OPENAI_API_KEY": "746e6010108f4be7a97d9b89c91b8cd8",
     "OPENAI_API_VERSION": "2023-05-15",
+    "OPENAI_MODEL_DEPLOYMENT": "smart-agent-gpt35-16k",
     "OPENAI_EMBEDDINGS_DEPLOYMENT": "smart-agent-embedding-ada",
-    "OPENAI_EMBEDDINGS_MODEL_NAME": "text-embedding-ada-002"
+    "OPENAI_EMBEDDINGS_MODEL_NAME": "text-embedding-ada-002",
+    "REDIS_HOST": "izzycache.redis.cache.windows.net",
+    "REDIS_HOST": "6380",
+    "REDIS_PASSWORD": "u2y4V8rHImi4AvKhUytmtQckQvkiZJJDAAzCaCAVtdg="
   },
   "Host": {
     "LocalHttpPort": 7075,

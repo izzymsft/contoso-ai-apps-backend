@@ -25,11 +25,11 @@ export class RedisUtil {
   /**
    * CacheUtil Constructor
    */
-  protected constructor(host: string, port: number, password: string) {
+  protected constructor() {
     // Retrieves the Configuration
-    const cacheHostName: string = host;
-    const cacheHostPort: number = port;
-    const cachePassword: string = password;
+    const cacheHostName: string = process.env['REDIS_HOST'];
+    const cacheHostPort: number = +process.env['REDIS_PORT'];
+    const cachePassword: string = process.env['REDIS_PASSWORD'];
 
     // Prepares the URL
     const cacheURL = RedisUtil.PROTOCOL + '://' + cacheHostName + ':' + cacheHostPort;
@@ -68,7 +68,7 @@ export class RedisUtil {
    * @returns the CacheUtil instance
    */
   public static async getInstance(host: string, port: number, password: string): Promise<RedisUtil> {
-    const cacheInstance = await new RedisUtil(host, port, password).init();
+    const cacheInstance = await new RedisUtil().init();
     const info = await cacheInstance.getClientId();
     console.log('Client Info:');
     console.log(info);
