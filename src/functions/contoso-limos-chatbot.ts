@@ -80,7 +80,7 @@ export function getFunctionDefinitions() {
         properties: {
           searchDate: {
             type: 'string',
-            description: 'The reservationDate the customer is interested in making a reservation',
+            description: 'The reservationDate the customer is interested in making a reservation. Ask the user if not obtained. Dont assume',
           },
         },
         required: ['searchDate'],
@@ -112,7 +112,7 @@ export function getFunctionDefinitions() {
           },
           numberOfPassengers: {
             type: 'number',
-            description: 'The total number of passengers for the reservation',
+            description: 'The total number of passengers for the reservation. Ask the user if not obtained. Dont assume',
           },
         },
         required: ['reservationDate', 'numberOfPassengers'],
@@ -145,7 +145,7 @@ export async function contosoLimos(request: HttpRequest, context: InvocationCont
   const systemMessage: ChatMessage = {
     role: 'system',
     content:
-      'You are smart assistant named Amina that helps customers to search for availability, make reservations and also cancel existing reservations for limousines. Please use the appropriate function to fetch the answers to the questions or take action.',
+      'You are smart assistant named Amina that helps customers to search for availability, make reservations and also cancel existing reservations for limousines. Always ask to confirm the details before making or cancelling a reservation. Please use the appropriate function to fetch the answers to the questions or take action.',
   };
 
   const userMessage: ChatMessage = {
@@ -164,6 +164,8 @@ export async function contosoLimos(request: HttpRequest, context: InvocationCont
   const firstResponseMessage: ChatMessage = firstResponse.choices[0].message;
 
   const availableFunctions = getFunctionMap();
+
+  // let makeFunctionCall: boolean = firstResponseMessage.functionCall ? true : false;
 
   if (firstResponseMessage.functionCall) {
     const functionName = firstResponseMessage.functionCall.name;
@@ -192,7 +194,8 @@ export async function contosoLimos(request: HttpRequest, context: InvocationCont
 
     const responseBody: ChatReply = { reply };
 
-    console.log(messages);
+    //console.log(messages);
+    console.log(JSON.stringify(secondResponse));
 
     return { jsonBody: responseBody };
   }
@@ -201,7 +204,9 @@ export async function contosoLimos(request: HttpRequest, context: InvocationCont
 
   const responseBody: ChatReply = { reply };
 
-  console.log(messages);
+  //console.log(messages);
+  console.log(JSON.stringify(firstResponse));
+
   return { jsonBody: responseBody };
 }
 
