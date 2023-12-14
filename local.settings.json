@@ -9,17 +9,17 @@
     "COSMOS_DB_CONNECTION": "AccountEndpoint=https://contosoapps.documents.azure.com:443/;AccountKey=43inCqfQkRcyzMg5d5g7k1l0azqNp1D2AgzIaSByqGwnSWR2HjEv2fkFcAKTV1YrmbUtfbRjmBdYACDbm60WCA==;",
     "COSMOS_DB_DATABASE": "contosodb",
     "AZURE_SEARCH_ENDPOINT": "https://contosoapps.search.windows.net",
-    "AZURE_SEARCH_KEY": "hOa1VVLYnQStETpTK77MyzQ9lV3qeAOgx7qXVENcQkAzSeCohM27",
+    "AZURE_SEARCH_KEY": "hOa1VVLYnQStETpTK77MyzQ9lV3qeAOgx7qXVENc",
     "OPENAI_API_TYPE": "azure",
     "OPENAI_API_BASE": "https://esteunidos.openai.azure.com/",
-    "OPENAI_API_KEY": "746e6010108f4be7a97d9b89c91b8cd8",
+    "OPENAI_API_KEY": "746e6010108f4be7a97d9b89c98",
     "OPENAI_API_VERSION": "2023-05-15",
     "OPENAI_MODEL_DEPLOYMENT": "smart-agent-gpt35-16k",
     "OPENAI_EMBEDDINGS_DEPLOYMENT": "smart-agent-embedding-ada",
     "OPENAI_EMBEDDINGS_MODEL_NAME": "text-embedding-ada-002",
     "REDIS_HOST": "izzycache.redis.cache.windows.net",
     "REDIS_HOST": "6380",
-    "REDIS_PASSWORD": "u2y4V8rHImi4AvKhUytmtQckQvkiZJJDAAzCaCAVtdg="
+    "REDIS_PASSWORD": "u2y4V8rHI"
   },
   "Host": {
     "LocalHttpPort": 7075,
